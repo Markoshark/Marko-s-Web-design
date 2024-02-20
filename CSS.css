@@ -22,9 +22,9 @@ body {
     padding: 20px;
     color: rgb(255, 2, 2);
     text-align: center;
-    height: 200px; /* Fixed height might not be ideal for all screen sizes */
+    height: 200px; /* Might adjust for mobile responsiveness */
     font-family: "Cinzel", serif;
-    font-size: 65px; /* Large font size might need to be adjusted on smaller screens */
+    font-size: 65px; /* Adjusted for mobile screens */
     justify-content: center;
     align-items: center;
     text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
@@ -37,31 +37,25 @@ body {
     cursor: pointer;
     padding: 20px;
     font-size: 20px;
-    position: absolute;
-    left: 20px;
-    top: 20px; /* Adjusted for better positioning on mobile */
-    z-index: 1;
-    border: 1PX white solid;
+    position: fixed; /* Ensures it stays in place while scrolling */
+    right: 20px; /* Maintains its position on the right */
+    top: 20px; /* Fixed to the top */
+    z-index: 100; /* Ensures it's above other elements */
 }
 
-/* ... other styles ... */
-
+/* Responsive adjustments */
 @media screen and (max-width: 768px) {
     .banner {
-        font-size: 30px; /* Smaller font size for mobile devices */
-        height: auto; /* Auto height for better flexibility */
-        padding: 10px 0; /* Reduced padding */
+        font-size: 30px; /* More suitable for smaller screens */
+        height: auto; /* Adjusts height based on content */
+        padding-top: 80px; /* Increases padding to ensure text does not get covered by the hamburger menu */
+        padding-bottom: 20px; /* Adjusts bottom padding for balance */
     }
 
-    .hamburger-menu {
-        top: 20px; /* Position from the top */
-        left: auto; /* Resets the left position */
-        right: 20px; /* Position from the right for a standard appearance */
-    }
-
+    /* Ensure navbar links are accessible and visually adjusted for mobile */
     .navbar a {
-        padding: 10px 15px; /* Adjust the padding to be more suitable for mobile */
-        font-size: 14px; /* Reduce font size for mobile screens */
+        padding: 10px 15px; /* Suitable padding for tap targets */
+        font-size: 14px; /* Readability on smaller screens */
     }
 }
 
