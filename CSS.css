@@ -266,3 +266,6 @@ p {
     background-color: #3e8e41; /* Darker green on active */
     box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Less pronounced box shadow to simulate pressing down */
 }
+.form-messages {
+    margin: 10PX
+}
