@@ -267,6 +267,29 @@ p {
     background-color: #3e8e41; /* Darker green on active */
     box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Less pronounced box shadow to simulate pressing down */
 }
+.main-banner {
+    /* This will only affect the .banner within the .main-banner class */
+    padding: 20px;
+    color: rgb(255, 2, 2);
+    text-align: center;
+    /* Keep your existing styles here */
+}
+
+/* Responsive adjustments for the .main-banner on mobile devices */
+@media screen and (max-width: 768px) {
+    .hamburger-menu {
+        position: fixed; /* Fix the hamburger menu so it's not affected by scrolling */
+        right: 20px; /* Align to the right */
+        top: 20px; /* Align to the top */
+    }
+
+    .main-banner {
+        margin-top: 60px; /* Add top margin to push the banner text below the hamburger menu */
+        font-size: 30px; /* Adjust font size for smaller screens */
+        height: auto; /* Adjust height to content */
+        padding: 10px; /* Adjust padding as needed */
+    }
+}
 
 .form-messages {
     margin: 10PX
