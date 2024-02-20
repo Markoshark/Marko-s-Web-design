@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marko's Web Design and Art Creation Services</title>
+    <link rel="stylesheet" href="CSS.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="banner">Our Services</div>
+
+    <!-- Hamburger Menu Button -->
+    <div class="hamburger-menu">&#9776;</div>
+
+    <!-- Dropdown Menu Content, hidden by default -->
+    <div class="dropdown-content">
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+        <a href="pay.html">Pay</a>
+        
+    </div>
+
+    <div class="text-container">
+        <h2>Custom Art</h2>
+        <p>Bring your vision to life with custom art. Whether for digital or print, our artworks add a unique touch to any project. Ideal for branding, personal use, or decoration.</p>
+        <a href="contact.html" class="contact-button">Contact us for pricing</a>
+    </div>
+    
+    <div class="text-container">
+        <h2>Social Banners</h2>
+        <p>Enhance your Social profile with a custom-designed banner that captures the essence of your brand. Our Twitter banner services are perfect for individuals and businesses looking to make a statement on social media.</p>
+        <a href="contact.html" class="contact-button">Contact us for pricing</a>
+    </div>
+    
+    <div class="text-container">
+        <h2>Logo Design</h2>
+        <p>Stand out with a unique logo that perfectly represents your brand. Our logo design service focuses on creating memorable and impactful logos that capture the essence of your brand and appeal to your target audience.</p>
+        <a href="contact.html" class="contact-button">Contact us for pricing</a>
+    </div>
+    
+    <div class="text-container">
+        <h2>Image Creation</h2>
+        <p>Bring your ideas to life with custom images. From promotional materials to social media content, our image creation services are designed to produce visually stunning graphics that engage and captivate your audience.</p>
+        <a href="contact.html" class="contact-button">Contact us for pricing</a>
+    </div>
+    
+    <div class="text-container">
+        <h2>Design for Clothing Brands</h2>
+        <p>Revolutionize your fashion line with our design services for clothing brands. Whether you're launching a new collection or refreshing an existing one, we offer creative design solutions that align with your vision and resonate with your customers.</p>
+        <a href="contact.html" class="contact-button">Contact us for pricing</a>
+    </div>
+    
+    <div class="text-container">
+        <p>For more detailed inquiries or custom projects, <a href="contact.html" class="contact-button">contact us directly</a>. We're excited to work with you to bring your creative visions to life.</p>
+    </div>
+
+    <footer class="footer">
+        © 2024 Marko's Web Design and Art Creation. All rights reserved.
+    </footer>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var hamburger = document.querySelector('.hamburger-menu');
+            var dropdownContent = document.querySelector('.dropdown-content');
+
+            hamburger.addEventListener('click', function(event) {
+                event.stopPropagation();
+                dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+            });
+
+            document.addEventListener('click', function(event) {
+                if (!hamburger.contains(event.target) && !dropdownContent.contains(event.target)) {
+                    dropdownContent.style.display = 'none';
+                }
+            });
+
+            dropdownContent.addEventListener('click', function(event) {
+                event.stopPropagation();
+            });
+        });
+    </script>
+</body>
+</html>
