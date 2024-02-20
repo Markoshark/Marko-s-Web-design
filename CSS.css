@@ -41,8 +41,8 @@ body {
     left: 0; /* Align to the very left */
     top: 0; /* Align to the very top */
     z-index: 10; /* Ensure it's above other elements */
-    width: 50px; /* Adjust the width to your icon size */
-    height: 50px; /* Adjust the height to your icon size */
+    width: 40px; /* Adjust the width to your icon size */
+    height: 40px; /* Adjust the height to your icon size */
     display: flex; /* To properly center the content */
     justify-content: center; /* Center content horizontally */
     align-items: center; /* Center content vertically */
@@ -77,11 +77,11 @@ body {
 .dropdown-content {
     display: none;
     position: fixed;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0,0,0,0.9);
     top: 265px;
     left: 20px;
     padding: 10px 15px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.7);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.9);
     z-index: 2;
     width: auto;
     border: 1px white solid;
