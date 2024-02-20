@@ -28,7 +28,9 @@
     <div class="text-container">
         <h1>Contact Us</h1>
         <p>If you have any questions or would like to get in touch, please fill out the form below and we will get back to you as soon as possible.</p>
-        <div id="form-messages" class="form-messages"></div>
+        
+        <div id="form-messages" class="form-messages"></div> <!-- Message container -->
+        
         <div class="contact-form">
             <form id="contact-form" action="https://formspree.io/f/mrgndqrz" method="POST">
                 <label for="name">Name:</label>
@@ -51,10 +53,9 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            // Hamburger menu functionality
             var hamburger = document.querySelector('.hamburger-menu');
             var dropdownContent = document.querySelector('.dropdown-content');
-            var contactForm = document.getElementById('contact-form');
-            var formMessages = document.getElementById('form-messages');
 
             hamburger.addEventListener('click', function(event) {
                 event.stopPropagation();
@@ -71,11 +72,13 @@
                 event.stopPropagation();
             });
 
-            // Listen for submit event on the form
+            // Form submission functionality
+            var contactForm = document.getElementById('contact-form');
+            var formMessages = document.getElementById('form-messages');
+
             contactForm.addEventListener('submit', function(event) {
                 event.preventDefault();
 
-                // Send the form data using Fetch API
                 fetch(contactForm.action, {
                     method: 'POST',
                     body: new FormData(contactForm),
@@ -85,19 +88,15 @@
                 })
                 .then(response => {
                     if (response.ok) {
-                        // Show success message
                         formMessages.textContent = 'Thank you for your message! We will get back to you soon.';
                         formMessages.style.color = 'green';
-                        // Reset the form fields
                         contactForm.reset();
                     } else {
-                        // Show error message
                         formMessages.textContent = 'Oops! There was a problem submitting your form.';
                         formMessages.style.color = 'red';
                     }
                 })
                 .catch(error => {
-                    // Show error message
                     formMessages.textContent = 'Oops! Something went wrong.';
                     formMessages.style.color = 'red';
                 });
@@ -106,4 +105,5 @@
     </script>
 </body>
 </html>
+
 
