@@ -8,28 +8,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <style>
         
-        .image-container {
+       .image-container {
             position: relative;
-            width: 400px;
-            height: 400px;
+            max-width: 400px; /* maximum width, can be less */
+            width: 90%; /* responsive width */
+            height: auto; /* height is determined by content */
+            aspect-ratio: 1 / 1; /* maintain a square aspect ratio */
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 20px;
+            margin: 20px auto; /* centered horizontally */
             overflow: hidden;
             border: 1px white solid;
         }
         .image-text {
-            position: absolute; /* This positions the text absolutely within the container */
-            bottom: 0; /* Aligns the text to the bottom of the container */
-            left: 0; /* Aligns the text to the left of the container */
-            width: 100%; /* Ensures the text spans the full width of the container */
-            
-            color: #fff; /* Sets the text color to white */
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background for the text */
-            padding: 5px; /* Adds some space inside the text background */
-            text-align: center; /* Centers the text horizontally */
-            box-sizing: border-box; /* Includes padding in the width calculation */
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5px;
+            text-align: center;
+            box-sizing: border-box;
             z-index: 10;
         }
         
@@ -38,38 +39,21 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh; /* Use the full height of the viewport */
-        }
-        
-        .row {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            min-height: 100vh; /* changed to min-height */
         }
         
         .image-container img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
+            object-fit: contain;
         }
         
-        /* Hide the first and last container by default */
-        .image-container.first, .image-container.last {
-            display: none;
-        }
-
-        /* Custom media query to adjust layout for larger screens */
         @media (min-width: 1024px) {
-            .image-container.first, .image-container.last {
-                display: flex; /* Show the hidden containers on larger screens */
-            }
-            
             .dice-layout {
                 flex-direction: row;
                 flex-wrap: wrap;
                 justify-content: center;
                 align-items: center;
-                height: auto;
             }
             
             .row {
@@ -86,6 +70,24 @@
                 flex-grow: 1;
             }
         }
+
+        @media (max-width: 767px) {
+            .image-container {
+                width: 90%; /* or whatever percentage suits your design */
+                margin: 10px auto; /* adjust margin for smaller screens */
+            }
+
+            .image-text {
+                padding: 5 px;
+                          
+            }
+
+
+
+            .dice-layout {
+            flex-direction: column; /* stack images vertically on small screens */
+        }
+    }
     </style>
 </head>
 <body>
