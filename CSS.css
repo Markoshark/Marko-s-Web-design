@@ -33,37 +33,47 @@ body {
 .hamburger-menu {
     background-color: #333;
     color: white;
-    border: none;
+    border: 1px white solid;
     cursor: pointer;
-    padding: 20px;
+    padding: 10px; /* Adjusted padding */
     font-size: 20px;
-    position: absolute;
-    left: 0px;
-    top: 0px; /* Adjusted for better positioning on mobile */
+    position: fixed; /* Change from absolute to fixed */
+    left: 0;
+    top: 0;
     z-index: 1;
-    border: 1PX white solid;
+    width: 50px; /* Set a specific size for the hamburger menu */
+    height: 50px; /* Set a specific size for the hamburger menu */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Add padding to the top of the banner content to avoid overlap */
+/* ... other styles ... */
+
 @media screen and (max-width: 768px) {
     .banner {
-        margin-top: 60px; /* Provide enough space for the hamburger menu */
-        font-size: 30px; /* Adjust font size for smaller screens */
-        padding: 10px 0; /* Adjust padding */
-        /* Keep the height property if necessary, otherwise remove it */
+        /* Increase the top padding to push content down below the hamburger menu */
+        padding-top: 70px; /* Adjust this value as needed */
+        font-size: 30px; /* Smaller font size for mobile devices */
+        padding-left: 10px; /* Add padding to ensure text doesn't overlap hamburger menu */
+        padding-right: 10px; /* Add padding for symmetry */
+        height: auto; /* Height adjusts to content */
+        margin-top: 50px; /* Add margin to the top to push banner down */
     }
-}
 
-    /* Adjust the padding of the banner to prevent text from being hidden under the hamburger menu */
-    .banner {
-        padding-top: 70px; /* This value should be equal to or greater than the height of the hamburger menu */
+    .hamburger-menu {
+        position: fixed; /* Ensure it doesn't move on scroll */
+        left: 0; /* Stay on the left */
+        top: 0; /* Stay at the top */
+        width: 50px; /* Maintain width */
+        height: 50px; /* Maintain height */
+        z-index: 100; /* High z-index to ensure it's above other content */
     }
-}
 
-    /* Ensure navbar links are accessible and visually adjusted for mobile */
+    /* Adjust navbar links for mobile if necessary */
     .navbar a {
-        padding: 10px 15px; /* Suitable padding for tap targets */
-        font-size: 14px; /* Readability on smaller screens */
+        padding: 10px 15px;
+        font-size: 14px;
     }
 }
 
