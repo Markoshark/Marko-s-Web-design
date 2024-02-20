@@ -33,14 +33,15 @@ body {
 .hamburger-menu {
     background-color: #333;
     color: white;
-    border: 1px white solid;
+    border: none;
     cursor: pointer;
-    padding: 10px; /* Adjust padding to manage the size */
+    padding: 20px;
     font-size: 20px;
-    position: fixed; /* Keeps the button fixed during scroll */
-    left: 0; /* Align to the very left */
-    top: 0; /* Align to the very top */
-    z-index: 10; /* Ensure it's above other elements */
+    position: absolute;
+    left: 0px;
+    top: 0px; /* Adjusted for better positioning on mobile */
+    z-index: 1;
+    border: 1PX white solid;
 }
 
 /* Add padding to the top of the banner content to avoid overlap */
