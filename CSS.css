@@ -41,21 +41,17 @@ body {
     left: 0; /* Align to the very left */
     top: 0; /* Align to the very top */
     z-index: 10; /* Ensure it's above other elements */
-    width: 40px; /* Adjust the width to your icon size */
-    height: 40px; /* Adjust the height to your icon size */
-    display: flex; /* To properly center the content */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
 }
 
 /* Add padding to the top of the banner content to avoid overlap */
 @media screen and (max-width: 768px) {
     .banner {
-        margin-top: 60px; /* Add space for the fixed position hamburger menu */
-        font-size: 30px; /* Adjust font size for mobile devices */
-        padding: 10px; /* Adjust padding */
+        margin-top: 60px; /* Provide enough space for the hamburger menu */
+        font-size: 30px; /* Adjust font size for smaller screens */
+        padding: 10px 0; /* Adjust padding */
         /* Keep the height property if necessary, otherwise remove it */
     }
+}
 
     /* Adjust the padding of the banner to prevent text from being hidden under the hamburger menu */
     .banner {
