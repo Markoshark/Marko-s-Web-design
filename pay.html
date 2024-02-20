@@ -6,6 +6,87 @@
     <title>Pay with Cryptocurrency</title>
     <link rel="stylesheet" href="CSS.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        
+        .image-container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+            overflow: hidden;
+            border: 1px white solid;
+        }
+        .image-text {
+            position: absolute; /* This positions the text absolutely within the container */
+            bottom: 0; /* Aligns the text to the bottom of the container */
+            left: 0; /* Aligns the text to the left of the container */
+            width: 100%; /* Ensures the text spans the full width of the container */
+            
+            color: #fff; /* Sets the text color to white */
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background for the text */
+            padding: 5px; /* Adds some space inside the text background */
+            text-align: center; /* Centers the text horizontally */
+            box-sizing: border-box; /* Includes padding in the width calculation */
+            z-index: 10;
+        }
+        
+        .dice-layout {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Use the full height of the viewport */
+        }
+        
+        .row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Hide the first and last container by default */
+        .image-container.first, .image-container.last {
+            display: none;
+        }
+
+        /* Custom media query to adjust layout for larger screens */
+        @media (min-width: 1024px) {
+            .image-container.first, .image-container.last {
+                display: flex; /* Show the hidden containers on larger screens */
+            }
+            
+            .dice-layout {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                height: auto;
+            }
+            
+            .row {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .row .image-container:not(:nth-child(3)) {
+                margin-top: -200px; /* Adjust this value to align the top and bottom images with the middle row */
+            }
+            
+            .row .image-container:nth-child(3) {
+                order: 2;
+                flex-grow: 1;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="banner">Pay with Cryptocurrency</div>
@@ -23,9 +104,33 @@
 
     <div class="text-container">
         <h2>Pay with Cryptocurrency</h2>
-        <button id="payButton">Pay Now</button>
+       
+    </div>
+
+    <!-- Image containers arranged in "dice-five" pattern -->
+    <div class="dice-layout">
+        <div class="image-container">
+            <img src="IMG_20240221_074052.jpg" alt="Image Description 1">
+            <div class="image-text">Solana</div> <!-- Text overlay -->
         </div>
-    
+        <div class="image-container">
+            <img src="IMG_20240221_074121.jpg" alt="Image Description 2">
+            <div class="image-text">Ethereum</div>
+        </div>
+        <div class="image-container dice-center">
+            <img src="IMG_20240221_074153.jpg" alt="Image Description 3">
+            <div class="image-text">Bitcoin</div>
+        </div>
+        <div class="image-container">
+            <img src="IMG_20240221_074223.jpg" alt="Image Description 4">
+            <div class="image-text">USDC on Sol</div>
+        </div>
+        <div class="image-container">
+            <img src="IMG_20240221_074252.jpg" alt="Image Description 5">
+            <div class="image-text">USDC on Eth</div>
+        </div>
+    </div>
+
     <script>
         document.getElementById('payButton').addEventListener('click', async () => {
             const amount = '100'; // Example amount
@@ -35,8 +140,7 @@
             const paymentDetails = await response.json();
             
             console.log(paymentDetails);
-            // Here, handle the paymentDetails response
-            // For example, redirect the user to a payment URL provided by the processor
+            // Handle the paymentDetails response
         });
     </script>
 
