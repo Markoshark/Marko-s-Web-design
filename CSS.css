@@ -19,17 +19,14 @@ body {
 }
 
 .banner {
-    
     padding: 20px;
     color: rgb(255, 2, 2);
     text-align: center;
-    height: 200px;
+    height: 200px; /* Fixed height might not be ideal for all screen sizes */
     font-family: "Cinzel", serif;
-    font-size: 65px;
-    
+    font-size: 65px; /* Large font size might need to be adjusted on smaller screens */
     justify-content: center;
     align-items: center;
-    
     text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
 }
 
@@ -42,26 +39,30 @@ body {
     font-size: 20px;
     position: absolute;
     left: 20px;
-    top: 265px;
+    top: 20px; /* Adjusted for better positioning on mobile */
     z-index: 1;
     border: 1PX white solid;
 }
 
-.navbar {
-    overflow: hidden;
-    background-color: #333333;
-    font-family: "Cinzel", serif;
-    text-align: left;
-    border: 1px white solid;
-}
+/* ... other styles ... */
 
-.navbar a {
-    float: left;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 20px;
-    text-decoration: none;
+@media screen and (max-width: 768px) {
+    .banner {
+        font-size: 30px; /* Smaller font size for mobile devices */
+        height: auto; /* Auto height for better flexibility */
+        padding: 10px 0; /* Reduced padding */
+    }
+
+    .hamburger-menu {
+        top: 20px; /* Position from the top */
+        left: auto; /* Resets the left position */
+        right: 20px; /* Position from the right for a standard appearance */
+    }
+
+    .navbar a {
+        padding: 10px 15px; /* Adjust the padding to be more suitable for mobile */
+        font-size: 14px; /* Reduce font size for mobile screens */
+    }
 }
 
 .navbar a:hover {
@@ -266,6 +267,7 @@ p {
     background-color: #3e8e41; /* Darker green on active */
     box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Less pronounced box shadow to simulate pressing down */
 }
+
 .form-messages {
     margin: 10PX
 }
