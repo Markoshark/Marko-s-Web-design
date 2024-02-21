@@ -35,14 +35,14 @@ body {
     color: white;
     border: 1px white solid;
     cursor: pointer;
-    padding: 10px; /* Adjusted padding */
-    font-size: 20px;
+    padding: 5px; /* Adjusted padding */
+    font-size: 10px;
     position: fixed; /* Change from absolute to fixed */
     left: 0;
     top: 0;
     z-index: 1;
-    width: 50px; /* Set a specific size for the hamburger menu */
-    height: 50px; /* Set a specific size for the hamburger menu */
+    width: 40px; /* Set a specific size for the hamburger menu */
+    height: 40px; /* Set a specific size for the hamburger menu */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,8 +65,8 @@ body {
         position: fixed; /* Ensure it doesn't move on scroll */
         left: 0; /* Stay on the left */
         top: 0; /* Stay at the top */
-        width: 50px; /* Maintain width */
-        height: 50px; /* Maintain height */
+        width: 40px; /* Maintain width */
+        height: 40px; /* Maintain height */
         z-index: 100; /* High z-index to ensure it's above other content */
     }
 
