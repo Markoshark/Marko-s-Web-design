@@ -170,19 +170,21 @@
 
         
 
-       @media screen and (max-width: 768px) {
+     @media screen and (max-width: 768px) {
     .banner {
-        padding-top: 100px; /* Adjusted padding to provide space for the hamburger menu */
-        font-size: 30px; /* Adjust font size for better visibility on smaller screens */
-        height: auto; /* Set height to auto for better adaptability */
-        padding: 20px 0; /* Provide padding to ensure text is centered and has space */
+        /* Keep the padding and font size adjustments for better mobile visibility */
+        font-size: 30px;
+        height: auto;
+        padding: 20px 0; /* Adjust this padding if necessary */
     }
 
     .hamburger-menu {
         position: absolute;
-        right: 20px; /* Adjusted the right position to align better with layout */
-        top: 20px; /* Adjusted top position to ensure visibility without covering the text */
-        z-index: 20; /* Ensure the hamburger menu is above other elements */
+        right: 20px; /* Consider moving it to the right if it's not already */
+        top: 5px; /* Adjust the top position to be closer to the edge of the viewport */
+        z-index: 20;
+        width: 40px; /* Make the button smaller to reduce overlap */
+        height: 40px; /* Adjust the height as well */
     }
 }
         
