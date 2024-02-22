@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: #f7f7f7;
+            background-image: url("photos/background1.webp");
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 40px;
+        }
+
+        .payment-form {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+        }
+
+        .payment-form h2 {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        input, .stripe-input {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            display: block;
+            margin: 10px 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        button:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+        }
+
+        .checkbox {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox input {
+            margin-right: 10px;
+        }
+
+        .checkbox label {
+            margin: 0;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .payment-messages {
+            color: red;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .payment-success {
+            color: green;
+        }
+
+        .home-button {
+          background-color: #333; /* Match the hamburger menu */
+          color: white;
+          border: none;
+          cursor: pointer;
+          padding: 20px;
+          padding-top: 20px;
+          font-size: 20px;
+          position: absolute;
+          left: 60px; /* Adjust as needed to position correctly */
+          top: 10px;
+          width: 10%;
+          z-index: 1;
+          border: 1px white solid;
+      }
+      
+      /* Adjust the .hamburger-menu left position if necessary */
+      .hamburger-menu {
+          left: 0px;
+          top: 0px;
+          z-index: 1;
+          /* Other styles remain unchanged */
+      }
+      
+      @media screen and (max-width: 768px) {
+          .home-button {
+              top: 20px; /* Adjust mobile positioning */
+              left: 70px; /* Make sure this does not overlap with the hamburger */
+          }
+      }
+      
+    </style>
+</head>
+<div class="hamburger-menu">&#9776;</div>
+<button class="home-button" onclick="window.location.href='index.html';">Home</button>
+<body>
+    <form id="payment-form" class="payment-form">
+        <h2>Pay with card</h2>
+        <div id="payment-messages" class="payment-messages"></div>
+        
+        <input type="email" id="email" placeholder="Email" required>
+        
+        <div id="card-number-element" class="stripe-input"><!--Card number--></div>
+        <div id="card-expiry-element" class="stripe-input"><!--Expiration date--></div>
+        <div id="card-cvc-element" class="stripe-input"><!--CVC--></div>
+        
+        <input type="text" id="name-on-card" placeholder="Name on card" required>
+        
+        <select id="country" required>
+            <option value="">Country or region</option>
+            <option value="CN">China</option>
+            <option value="NZ">New Zealand</option>
+            <option value="IN">India</option>
+            <option value="US">United States</option>
+            <option value="ID">Indonesia</option>
+            <option value="PK">Pakistan</option>
+            <option value="BR">Brazil</option>
+            <option value="NG">Nigeria</option>
+            <option value="BD">Bangladesh</option>
+            <option value="RU">Russia</option>
+            <option value="MX">Mexico</option>
+            <option value="JP">Japan</option>
+            <option value="ET">Ethiopia</option>
+            <option value="PH">Philippines</option>
+            <option value="EG">Egypt</option>
+            <option value="VN">Vietnam</option>
+            <option value="CD">DR Congo</option>
+            <option value="TR">Turkey</option>
+            <option value="IR">Iran</option>
+            <option value="DE">Germany</option>
+            <option value="TH">Thailand</option>
+            <option value="GB">United Kingdom</option>
+            <option value="FR">France</option>
+            <option value="IT">Italy</option>
+            <option value="TZ">Tanzania</option>
+            <option value="ZA">South Africa</option>
+            <option value="MM">Myanmar</option>
+            <option value="KE">Kenya</option>
+            <option value="KR">South Korea</option>
+            <option value="CO">Colombia</option>
+            <option value="ES">Spain</option>
+            <option value="UG">Uganda</option>
+            <option value="AR">Argentina</option>
+            <option value="DZ">Algeria</option>
+            <option value="SD">Sudan</option>
+            <option value="UA">Ukraine</option>
+            <option value="IQ">Iraq</option>
+            <option value="AF">Afghanistan</option>
+            <option value="PL">Poland</option>
+            <option value="CA">Canada</option>
+            <option value="MA">Morocco</option>
+            <option value="SA">Saudi Arabia</option>
+            <option value="UZ">Uzbekistan</option>
+            <option value="PE">Peru</option>
+            <option value="AO">Angola</option>
+            <option value="MG">Madagascar</option>
+            <option value="AU">Australia</option>
+        </select>
+        
+        <div class="checkbox">
+            <input type="checkbox" id="save-info">
+            <label for="save-info">Save information to pay faster next time</label>
+        </div>
+        
+        <button type="submit" id="submit-button">Pay</button>
+    </form>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        const stripe = Stripe("pk_test_51Om9G0Ch6NVu8RtFk7xBWF9gHPyGGPWvaHQPUy74MPsb58HAipT7hT3feSzlRG3AvK4n5sjMBCHNMmiWpWGZ7KXL00JdD7uqH6"); // Use your actual publishable key
+        const elements = stripe.elements();
+        const style = {
+            base: {
+                fontSize: '16px',
+                color: '#32325d',
+                '::placeholder': {
+                    color: '#aab7c4'
+                },
+            },
+            invalid: {
+                color: '#fa755a',
+                iconColor: '#fa755a'
+            }
+        };
+
+        const cardNumber = elements.create('cardNumber', {style: style});
+        const cardExpiry = elements.create('cardExpiry', {style: style});
+        const cardCvc = elements.create('cardCvc', {style: style});
+
+        cardNumber.mount('#card-number-element');
+        cardExpiry.mount('#card-expiry-element');
+        cardCvc.mount('#card-cvc-element');
+
+        const form = document.getElementById('payment-form');
+        form.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const name = document.getElementById('name-on-card').value;
+            const country = document.getElementById('country').value;
+
+            stripe.createPaymentMethod({
+                type: 'card',
+                card: cardNumber,
+                billing_details: {
+                    email: email,
+                    name: name,
+                },
+            }).then(function(result) {
+                if (result.error) {
+                    // Show error in payment messages
+                    displayMessage(result.error.message, false);
+                } else {
+                    fetch('/create-payment-intent', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            payment_method: result.paymentMethod.id,
+                            amount: 2000, // Example amount, change as needed
+                            currency: 'usd',
+                        }),
+                    }).then(function(response) {
+                        return response.json();
+                    }).then(function(paymentIntentResult) {
+                        if (paymentIntentResult.error) {
+                            displayMessage(paymentIntentResult.error, false);
+                        } else {
+                            return stripe.confirmCardPayment(paymentIntentResult.clientSecret);
+                        }
+                    }).then(function(result) {
+                        if (result.error) {
+                            // Show error in payment messages
+                            displayMessage(result.error.message, false);
+                        } else {
+                            if (result.paymentIntent.status === 'succeeded') {
+                                // Payment succeeded, show success message
+                                displayMessage('Payment succeeded!', true);
+                            }
+                        }
+                    });
+                }
+            });
+        });
+
+        function displayMessage(text, isSuccess) {
+            const messageElement = document.getElementById('payment-messages');
+            messageElement.textContent = text;
+            if (isSuccess) {
+                messageElement.classList.remove('payment-error');
+                messageElement.classList.add('payment-success');
+            } else {
+                messageElement.classList.remove('payment-success');
+                messageElement.classList.add('payment-error');
+            }
+        }
+    </script>
+</body>
+</html>

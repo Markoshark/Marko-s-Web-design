@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+    <title>Photography by Barb - Marko's Web Design And Art Creation</title>
+    
+    <style>
+        body {
+            flex: 1;
+            background-color: #131010;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: #201b1b;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .text-container {
+            border: 1px solid white;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: #f50a0a;
+            font-family: "Cinzel", serif;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333333;
+            color: white;
+            font-family: 'Cinzel', serif;
+            font-size: 16px;
+            width: 100%;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+            border-top: 2px solid #f7f8f7;
+            margin-top: auto;
+        }
+        
+        p {
+            font-size: 20px;
+            font-family: "Cinzel", serif;
+        }
+
+        .banner {
+            padding-top: 60px;
+            color: rgb(255, 2, 2);
+            text-align: center;
+            font-family: "Cinzel", serif;
+            font-size: 65px;
+            justify-content: center;
+            align-items: center;
+            text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+        }
+        .hamburger-menu {
+            background-color: #333;
+            color: white;
+            border: 1px white solid;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 20px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 10;
+            width: 50px;
+            height: 50px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: fixed;
+            background-color: rgba(0,0,0,0.8);
+            top: 265px;
+            left: 20px;
+            padding: 10px 15px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.7);
+            z-index: 2;
+            width: auto;
+            border: 1px white solid;
+            font: 2em sans-serif;
+        }
+        
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #575757;
+        }
+        @media screen and (max-width: 768px) {
+            .hamburger-menu {
+                display: block;
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+        
+            .navbar a {
+                display: none;
+            }
+        
+            .navbar.active .dropdown-content {
+                display: block;
+            }
+        
+            .navbar, .dropdown-content {
+                width: 100%;
+            }
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .photo-item {
+            position: relative; 
+            width: calc(50% - 20px);
+            margin: 10px;
+            border: 1px solid white;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .photo-item img {
+            max-width: 100%;
+            height: auto;
+            display: block; 
+        }
+        
+
+        .buy-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        @media screen and (max-width: 768px) {
+            .photo-item {
+                width: calc(100% - 20px);
+            }
+        }
+
+        
+
+        @media screen and (max-width: 768px) {
+            .banner {
+                padding-top: 80px; 
+                font-size: 30px; 
+                height: auto; 
+                padding: 20px 0; 
+            }
+        
+            .hamburger-menu {
+                position: absolute;
+                right: 20px; 
+                top: 20px; 
+                z-index: 20; 
+            }
+        }
+        
+            .navbar a {
+                padding: 10px 15px; 
+                font-size: 14px; 
+            }
+
+            .contact-button {
+                background-color: #4CAF50;
+                color: white;
+                padding: 10px 20px;
+                border-radius: 5px;
+                text-decoration: none;
+                display: inline-block;
+                font-weight: bold;
+                transition: background-color 0.3s;
+            }
+            
+            .contact-button:hover {
+                background-color: #367c39;
+            }
+
+            .image-container {
+                position: relative;
+                display: inline-block;
+            }
+            .cart-container {
+                margin: 20px auto;
+                padding: 20px;
+                max-width: 800px;
+                background-color: rgba(0, 0, 0, 0.8); 
+                color: white; 
+                border: 1px solid white; 
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.5); 
+            }
+            
+            .cart-container h2, .cart-container h3 {
+                font-family: 'Cinzel', serif;
+                color: #f50a0a; 
+                text-align: center; 
+            }
+            
+            #cart-items {
+                list-style-type: none; 
+                padding: 0;
+                margin-bottom: 20px; 
+            }
+            
+            #cart-items div {
+                padding: 10px 0; 
+                border-bottom: 1px dashed #f7f8f7; 
+                font-family: Georgia, 'Times New Roman', Times, serif; 
+                font-size: 18px; 
+            }
+            
+            #cart-total {
+                font-weight: bold; 
+                color: #4CAF50; 
+                font-size: 20px; 
+            }
+            
+            .cart-container button {
+                background-color: #4CAF50; 
+                color: white; 
+                padding: 10px 20px; 
+                border: none; 
+                border-radius: 5px; 
+                cursor: pointer; 
+                font-family: 'Cinzel', serif; 
+                font-size: 16px; 
+                margin-top: 10px; 
+                width: 100%; 
+                box-sizing: border-box; 
+            }
+            
+            .cart-container button:hover {
+                background-color: #367c39; 
+            }
+            .checkout-button {
+                display: block; 
+                width: 100%; 
+                text-align: center; 
+                padding: 10px 20px; 
+                background-color: #4CAF50; 
+                color: white;
+                text-decoration: none; 
+                border-radius: 5px; 
+                margin-top: 20px; 
+                box-sizing: border-box; 
+                transition: background-color 0.3s; 
+            }
+            
+            .checkout-button:hover {
+                background-color: #367c39; 
+            }
+
+            .add-to-cart {
+                display: block; 
+                width: 40%; 
+                text-align: center; 
+                padding: 10px 20px; 
+                background-color: #4CAF50; 
+                color: white;
+                text-decoration: none; 
+                border-radius: 5px; 
+                margin-top: 20px; 
+                box-sizing: border-box; 
+                transition: background-color 0.3s; 
+            }
+    </style>  
+</head>
+<body>
+    <div class="banner">Photography by Barb </div>
+    <div class="hamburger-menu">&#9776;</div>
+    <div class="dropdown-content">
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+    </div>
+    <div class="cart-container">
+        <h2>Cart Items</h2>
+        <div id="cart-items"></div>
+        <h3>Total: <span id="cart-total">$0</span></h3>
+        <a href="checkout.html" class="checkout-button">Checkout</a>
+    </div>
+    <div class="text-container">
+        <h1>Discover Our Photography Collection</h1>
+        <p>Explore breathtaking landscapes, vibrant street scenes, and captivating wildlife photography. Each piece in our collection is carefully selected for its artistic value and emotional impact. Purchase a print today to bring the beauty of the world into your home or office.</p>
+    </div>
+        <div class="gallery">
+            <div class="photo-item">
+                <img src="photos/photo by barb (1).png" alt="Landscape Photography">
+                
+                <p class="price">Price: $20</p>
+                <button class="add-to-cart" data-photo-id="1">Add to Cart</button>
+                <p>#1</p>
+            </div>
+            
+            <div class="photo-item">
+                <img src="photos/photo by barb (2).png" alt="Street Photography">
+                
+                <p class="price">Price: $20</p>
+                <button class="add-to-cart" data-photo-id="2">Add to Cart</button>
+                <p>#2</p>
+            </div>
+            
+            <div class="photo-item">
+                <img src="photos/photo by barb (3).png" alt="Wildlife Photography">
+                
+                <p class="price">Price: $20</p>
+                <button class="add-to-cart" data-photo-id="3">Add to Cart</button>
+                <p>#3</p>
+            </div>
+    
+            <div class="photo-item">
+                <img src="photos/photo by barb (4).png" alt="Nature Photography">
+                
+                <p class="price">Price: $20</p>
+                <button class="add-to-cart" data-photo-id="4">Add to Cart</button>
+                <p>#4</p>
+            </div>
+    
+            <div class="photo-item">
+                <img src="photos/photo by barb (5).png" alt="Architectural Photography">
+                
+                <p class="price">Price: $20</p>
+                <button class="add-to-cart" data-photo-id="5">Add to Cart</button>
+                <p>#5</p>
+            </div>
+    
+            <div class="photo-item">
+                <img src="photos/photo by barb (6).png" alt="Urban Photography">
+                
+                <p class="price">Price: $20</p>
+                <button class="add-to-cart" data-photo-id="6">Add to Cart</button>
+                <p>#6</p>
+            </div>
+    
+            <div class="photo-item">
+                <img src="photos/photo by barb (7).png" alt="Cultural Photography">
+                
+                <p class="price">Price: $20</p>
+                <button class="add-to-cart" data-photo-id="7">Add to Cart</button>
+                <p>#7</p>
+            </div>
+    
+            <div class="photo-item">
+                <img src="photos/photo by barb (8).png" alt="Macro Photography">
+                
+                <p class="price">Price: $20</p>
+                <button class="add-to-cart" data-photo-id="8">Add to Cart</button>
+                <p>#8</p>
+            </div>
+    
+            <div class="photo-item">
+                <img src="photos/photo by barb (9).png" alt="Aerial Photography">
+                
+                <p class="price">Price: $20</p>
+                <button class="add-to-cart" data-photo-id="9">Add to Cart</button>
+                <p>#9</p>
+            </div>
+    
+            <div class="photo-item">
+                <img src="photos/photo by barb (10).png" alt="Underwater Photography">
+                
+                <p class="price">Price: $20</p>
+                <button class="add-to-cart" data-photo-id="10">Add to Cart</button>
+                <p>#10</p>
+            </div>
+    
+            <div class="photo-item">
+                <img src="photos/photo by barb (11).png" alt="Adventure Photography">
+                
+                <p class="price">Price: $20</p>
+                <button class="add-to-cart" data-photo-id="11">Add to Cart</button>
+                <p>#11</p>
+            </div>
+    
+            <div class="photo-item">
+                <img src="photos/photo by barb (12).png" alt="Portrait Photography">
+                
+                <p class="price">Price: $20</p>
+                <button class="add-to-cart" data-photo-id="12">Add to Cart</button>
+                <p>#12</p>
+            </div>
+        </div>
+
+    </div>
+    <footer class="footer">© 2024 Marko's Web Design and Art Creation. All rights reserved.</footer>
+    <script src="dropdown.js"></script>
+    <script>
+        let cart = [];
+        
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const photoId = this.getAttribute('data-photo-id');
+                const price = 20; 
+        
+                
+                const existingItem = cart.find(item => item.photoId === photoId);
+                if (!existingItem) {
+                    cart.push({ photoId, price });
+                }
+                
+                updateCart();
+            });
+        });
+        
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            let total = 0;
+        
+            
+            cartItems.innerHTML = '';
+        
+            
+            cart.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.textContent = `Photo ID: ${item.photoId}, Price: $${item.price}`;
+                cartItems.appendChild(itemElement);
+        
+                total += item.price;
+            });
+        
+            
+            cartTotal.textContent = `$${total}`;
+        }
+        </script>
+        <script src="https://js.stripe.com/v3/"></script>
+        
+</body>
+</html>
